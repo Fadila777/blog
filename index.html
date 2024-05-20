@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Index Page</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-image:url("h1.png");
+    Font-size: 10px;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    padding:  0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 12px 0 20px;
+}
+
+nav ul li a {
+    color: green;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: green;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.form-container {
+    display: none;
+    margin: 20px auto;
+    max-width: 300px;
+    padding: 20px;
+    border: 2px solid green;
+    border-radius: 5px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid green;
+    border-radius: 3px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #575757;
+}
+{
+    Font-size:1px;
+}
+.gup1 button{
+    Background-color: green;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="gup1"><a href="index.html" id="homeMenu"><button>Home</button></a></li>
+            <li class="gup1"><a href="contact.html" id="contactMenu"><button>Contact</button></a></li>
+            <li class="gup1"><a href="about.html" id="aboutMenu"><button>About</button></a></li></ul>
+         
+         <ul class="gup1">   <li><a href="#" id="registerMenu"><button>Register</button></a></li>
+                  
+            <li class="gup1"><a href="#" id="loginMenu"><button>Login</button></a></li></nav>
+            
+          <nav>
+            <li class="gup1"><a href="#" id="forgotPasswordMenu"><center><button>Forgot Password</button></center></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h3>Welcome to the Fadila Mustapha official blog page</h3><i><center>
+         The Fadila Mustapha official blog. Here, we highlight inspirational figures who have made significant contributions to society:</center<>
+    </i></div>
+
+        <div id="registerContainer" class="form-container" style="display: none;">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br>
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="loginContainer" class="form-container" style="display: none;">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" required><br>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="forgotPasswordContainer" class="form-container" style="display: none;">
+            <h2>Forgot Password</h2>
+            <form id="forgotPasswordForm">
+                <label for="forgotPasswordEmail">Email:</label>
+                <input type="email" id="forgotPasswordEmail" name="forgotPasswordEmail" required><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('registerMenu').addEventListener('click', function() {
+    showContainer('registerContainer');
+});
+
+document.getElementById('loginMenu').addEventListener('click', function() {
+    showContainer('loginContainer');
+});
+
+document.getElementById('forgotPasswordMenu').addEventListener('click', function() {
+    showContainer('forgotPasswordContainer');
+});
+
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Basic validation
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+    alert("Registration successful.");
+    window.location.href = 'home.html';
+});
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert("Login successful.");
+    window.location.href = 'home.html';
+});
+
+document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert("We sent you your password in your email.");
+    window.location.href = 'home.html';
+});
+
+function showContainer(containerId) {
+    document.querySelectorAll('.form-container').forEach(container => {
+        container.style.display = 'none';
+    });
+    document.getElementById(containerId).style.display = 'block';
+}
+
+    </script>
+</body>
+</html>
